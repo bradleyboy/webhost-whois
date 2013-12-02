@@ -59,6 +59,7 @@ Dreamhost | dreamhost | http://dreamhost.com
 GoDaddy | go-daddy | http://godaddy.com
 InMotion | in-motion | http://inmotionhosting.com
 Media Temple (gs) | media-temple-gs | http://mediatemple.net
+Media Temple DV | media-temple-dv | http://mediatemple.net
 OVH | ovh | http://ovh.co.uk
 Rackspace Cloud | rackspace-cloud | http://rackspace.com/cloud
 Site5 | site5 | http://site5.com

@@ -3,6 +3,7 @@
 class WebhostWhois
 {
 	public $key = 'unknown';
+	private $results;
 
 	// For magic methods
 	// Ex. isMediaTempleGs()
@@ -41,12 +42,50 @@ class WebhostWhois
 			'site5'           => strpos($uname, '.accountservergroup.com ') !== false,
 		);
 
-		foreach($results as $key => $passes)
+		// Separate definitions for hosts that can only be detected via DNS nameservers.
+		// Should try as much as possible not to do this, as it is slower.
+		// These will only be checked if none of the $results pass.
+		// Test will pass if any of the supplied nameservers are found in the DNS lookup.
+		$dns = array(
+			'media-temple-dv' => array('ns1.mediatemple.net', 'ns2.mediatemple.net'),
+		);
+
+		foreach($this->results as $key => $passes)
 		{
 			if ($passes === true)
 			{
 				$this->key = $key;
 				break;
+			}
+		}
+
+		if ($this->key === 'unknown')
+		{
+			$dnsInfo = dns_get_record($_SERVER['HTTP_HOST'], DNS_NS);
+			$ns = array();
+			foreach($dnsInfo as $info)
+			{
+				$ns[] = $info['target'];
+			}
+
+			foreach($dns as $key => $nameServers)
+			{
+				if ($this->key === 'unknown' && count(array_intersect($nameServers, $ns)) > 0)
+				{
+					$this->key = $key;
+					$this->results[$key] = true;
+				}
+				else
+				{
+					$this->results[$key] = false;
+				}
+			}
+		}
+		else
+		{
+			foreach($dns as $key => $nameServers)
+			{
+				$this->results[$key] = false;
 			}
 		}
 	}
