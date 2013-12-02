@@ -38,7 +38,7 @@ To get the key of the detected hosting company, access the `key` property:
 ```php
 require 'WebhostWhois.php';
 $host = new WebhostWhois;
-$host->key; // Ex: 'media-temple-gs'
+$host->key; // Ex: 'media-temple-grid'
 ```
 
 You can also call a boolean method based on the hosting company's key:
@@ -46,7 +46,7 @@ You can also call a boolean method based on the hosting company's key:
 ```php
 require 'WebhostWhois.php';
 $host = new WebhostWhois;
-$host->isMediaTempleGs(); // true
+$host->isMediaTempleGrid(); // true
 ```
 
 ## Supported hosts
