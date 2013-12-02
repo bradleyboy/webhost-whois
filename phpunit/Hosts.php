@@ -4,6 +4,16 @@ require dirname(dirname(__FILE__)) . '/WebhostWhois.php';
 
 class Hosts extends PHPUnit_Framework_TestCase
 {
+
+	/**
+     * @expectedException ErrorException
+     */
+    public function testException()
+    {
+    	$host = new WebhostWhois;
+    	$host->isSomeHost();
+    }
+
 	public function testUnknown()
 	{
 		$host = new WebhostWhois;
