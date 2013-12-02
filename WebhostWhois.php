@@ -31,15 +31,15 @@ class WebhostWhois
 
 		// Tests for each webhost go here. Each test should evaluate to a boolean.
 		// Keep tests in alphabetical order by key.
-		$results = array(
-			'bluehost'        => strpos($uname, 'hostmonster.com ') !== false,
-			'dreamhost'       => isset($_SERVER['DH_USER']),
-			'go-daddy'        => strpos($uname, 'secureserver.net') !== false,
-			'in-motion'       => strpos($uname, '.inmotionhosting.com') !== false,
-			'media-temple-gs' => isset($_SERVER['ACCESS_DOMAIN']) && preg_match('/\.gridserver\.com$/', $_ENV['ACCESS_DOMAIN']) === 1,
-			'ovh'             => strpos($uname, '.ovh.net ') !== false,
-			'rackspace-cloud' => strpos($uname, 'stabletransit.com ') !== false,
-			'site5'           => strpos($uname, '.accountservergroup.com ') !== false,
+		$this->results = array(
+			'bluehost'          => strpos($uname, 'hostmonster.com ') !== false,
+			'dreamhost'         => isset($_SERVER['DH_USER']),
+			'go-daddy'          => strpos($uname, 'secureserver.net') !== false,
+			'in-motion'         => strpos($uname, '.inmotionhosting.com') !== false,
+			'media-temple-grid' => isset($_SERVER['ACCESS_DOMAIN']) && preg_match('/\.gridserver\.com$/', $_ENV['ACCESS_DOMAIN']) === 1,
+			'ovh'               => strpos($uname, '.ovh.net ') !== false,
+			'rackspace-cloud'   => strpos($uname, 'stabletransit.com ') !== false,
+			'site5'             => strpos($uname, '.accountservergroup.com ') !== false,
 		);
 
 		// Separate definitions for hosts that can only be detected via DNS nameservers.
