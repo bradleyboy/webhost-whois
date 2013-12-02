@@ -6,7 +6,7 @@ class WebhostWhois
 	private $results;
 
 	// For magic methods
-	// Ex. isMediaTempleGs()
+	// Ex. isMediaTempleGrid(), isDreamhost(), etc
 	public function __call($name, $parameters)
 	{
 		$original = $name;
