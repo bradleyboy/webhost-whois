@@ -23,11 +23,19 @@ class WebhostWhois
 		}
 	}
 
-	function __construct()
+	function __construct($uname = false, $server = false)
 	{
 		// Used for several tests
 		// Many hosts can be identified by the domain listed
-		$uname = php_uname();
+		if (!$uname)
+		{
+			$uname = php_uname();
+		}
+
+		if ($server)
+		{
+			$_SERVER = $server;
+		}
 
 		// Tests for each webhost go here. Each test should evaluate to a boolean.
 		// Keep tests in alphabetical order by key.
@@ -36,7 +44,7 @@ class WebhostWhois
 			'dreamhost'         => isset($_SERVER['DH_USER']),
 			'go-daddy'          => strpos($uname, 'secureserver.net') !== false,
 			'in-motion'         => strpos($uname, '.inmotionhosting.com') !== false,
-			'media-temple-grid' => isset($_SERVER['ACCESS_DOMAIN']) && preg_match('/\.gridserver\.com$/', $_ENV['ACCESS_DOMAIN']) === 1,
+			'media-temple-grid' => isset($_SERVER['ACCESS_DOMAIN']) && preg_match('/\.gridserver\.com$/', $_SERVER['ACCESS_DOMAIN']) === 1,
 			'ovh'               => strpos($uname, '.ovh.net ') !== false,
 			'rackspace-cloud'   => strpos($uname, 'stabletransit.com ') !== false,
 			'site5'             => strpos($uname, '.accountservergroup.com ') !== false,
