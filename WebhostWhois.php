@@ -33,11 +33,11 @@ class WebhostWhois
 		// Many hosts can be identified by the domain listed
 		$uname = php_uname();
 
-		// Tests for each webhost go here. Each test should evaluate to (bool) true.
+		// Tests for each webhost go here. Each test should evaluate to a boolean.
 		// Keep tests in alphabetical order by key.
 		$this->results = array(
 			'dreamhost'       => isset($_SERVER['DH_USER']),
-			'go-daddy'         => strpos($uname, 'secureserver.net') !== false,
+			'go-daddy'        => strpos($uname, 'secureserver.net') !== false,
 			'in-motion'       => strpos($uname, '.inmotionhosting.com') !== false,
 			'media-temple-gs' => preg_match('/\.gridserver\.com$/', $_ENV['ACCESS_DOMAIN']) === 1,
 		);
