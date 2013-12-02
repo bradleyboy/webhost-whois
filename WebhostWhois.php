@@ -8,9 +8,18 @@ class WebhostWhois
 	// Ex. isMediaTempleGs()
 	public function __call($name, $parameters)
 	{
+		$original = $name;
 		$name = preg_replace_callback('/^is([A-Z])/', create_function('$matches', 'return strtolower($matches[1]);'), $name);
 		$name = preg_replace_callback('/([A-Z])/', create_function('$matches', 'return \'-\' . strtolower($matches[1]);'), $name);
-		return (bool) $this->results[$name];
+
+		if (isset($this->results[$name]))
+		{
+			return (bool) $this->results[$name];
+		}
+		else
+		{
+			throw new ErrorException('WebhostWhois class does not have method ' . $original);
+		}
 	}
 
 	// Returns the detected webhost's key
@@ -40,7 +49,7 @@ class WebhostWhois
 			'dreamhost'       => isset($_SERVER['DH_USER']),
 			'go-daddy'        => strpos($uname, 'secureserver.net') !== false,
 			'in-motion'       => strpos($uname, '.inmotionhosting.com') !== false,
-			'media-temple-gs' => preg_match('/\.gridserver\.com$/', $_ENV['ACCESS_DOMAIN']) === 1,
+			'media-temple-gs' => isset($_SERVER['ACCESS_DOMAIN']) && preg_match('/\.gridserver\.com$/', $_ENV['ACCESS_DOMAIN']) === 1,
 			'ovh'             => strpos($uname, '.ovh.net ') !== false,
 		);
 	}

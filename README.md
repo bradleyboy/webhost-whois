@@ -29,23 +29,23 @@ Include the class, then create an instance of it.
 
 ```php
 require 'WebhostWhois.php';
-$whois = new WebhostWhois;
+$host = new WebhostWhois;
 ```
 
 To get the key of the detected hosting company, call the `get()` method:
 
 ```php
 require 'WebhostWhois.php';
-$whois = new WebhostWhois;
-$whois->get() // Ex: 'media-temple-gs'
+$host = new WebhostWhois;
+$host->get() // Ex: 'media-temple-gs'
 ```
 
 You can also call a boolean method based on the hosting company's key:
 
 ```php
 require 'WebhostWhois.php';
-$whois = new WebhostWhois;
-$whois->isMediaTempleGs(); // true
+$host = new WebhostWhois;
+$host->isMediaTempleGs(); // true
 ```
 
 ## Supported hosts
