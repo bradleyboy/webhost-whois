@@ -51,6 +51,7 @@ class WebhostWhois
 			'in-motion'       => strpos($uname, '.inmotionhosting.com') !== false,
 			'media-temple-gs' => isset($_SERVER['ACCESS_DOMAIN']) && preg_match('/\.gridserver\.com$/', $_ENV['ACCESS_DOMAIN']) === 1,
 			'ovh'             => strpos($uname, '.ovh.net ') !== false,
+			'rackspace-cloud' => strpos($uname, 'stabletransit.com ') !== false,
 		);
 	}
 }
