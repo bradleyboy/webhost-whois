@@ -67,7 +67,7 @@ class WebhostWhois
 			}
 		}
 
-		if ($this->key === 'unknown')
+		if ($this->key === 'unknown' && isset($_SERVER['HTTP_HOST']))
 		{
 			$dnsInfo = dns_get_record($_SERVER['HTTP_HOST'], DNS_NS);
 			$ns = array();
