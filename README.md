@@ -55,6 +55,6 @@ So far, the following hosts are supported:
 Company | Key | URL
 ----|------|----
 Dreamhost | dreamhost | http://dreamhost.com
-GoDaddy | godaddy | http://godaddy.com
+GoDaddy | go-daddy | http://godaddy.com
 InMotion | in-motion | http://inmotionhosting.com
 Media Temple (gs) | media-temple-gs | http://mediatemple.net
