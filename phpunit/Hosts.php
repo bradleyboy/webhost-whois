@@ -9,6 +9,8 @@ class Hosts extends PHPUnit_Framework_TestCase
 		$host = new WebhostWhois;
 		$this->assertFalse($host->isBluehost());
 		$this->assertEquals($host->key, 'unknown');
+		$this->assertFalse($host->isMediaTempleGrid());
+		$this->assertFalse($host->isMediaTempleDv());
 	}
 
 	public function testBluehost()
@@ -16,6 +18,8 @@ class Hosts extends PHPUnit_Framework_TestCase
 		$host = new WebhostWhois('Linux host192.hostmonster.com 2.6.32-20130307.60.9.bh6.x86_64 #1 SMP Thu Mar 7 15:58:33 EST 2013 x86_64');
 		$this->assertTrue($host->isBluehost());
 		$this->assertEquals($host->key, 'bluehost');
+		$this->assertFalse($host->isMediaTempleGrid());
+		$this->assertFalse($host->isMediaTempleDv());
 	}
 
 	public function testDreamhost()
@@ -50,6 +54,7 @@ class Hosts extends PHPUnit_Framework_TestCase
 	{
 		$host = new WebhostWhois(false, array('HTTP_HOST' => 'slideshowpro.net'));
 		$this->assertTrue($host->isMediaTempleDv());
+		$this->assertFalse($host->isMediaTempleGrid());
 		$this->assertEquals($host->key, 'media-temple-dv');
 	}
 

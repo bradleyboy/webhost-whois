@@ -58,22 +58,28 @@ class WebhostWhois
 			'media-temple-dv' => array('ns1.mediatemple.net', 'ns2.mediatemple.net'),
 		);
 
-		foreach($this->results as $key => $passes)
+		$host = array_search(true, $this->results);
+
+		if ($host)
 		{
-			if ($passes === true)
+			$this->key = $host;
+
+			foreach($dns as $key => $nameServers)
 			{
-				$this->key = $key;
-				break;
+				$this->results[$key] = false;
 			}
 		}
-
-		if ($this->key === 'unknown' && isset($_SERVER['HTTP_HOST']))
+		else
 		{
-			$dnsInfo = dns_get_record($_SERVER['HTTP_HOST'], DNS_NS);
 			$ns = array();
-			foreach($dnsInfo as $info)
+
+			if (isset($_SERVER['HTTP_HOST']))
 			{
-				$ns[] = $info['target'];
+				$dnsInfo = dns_get_record($_SERVER['HTTP_HOST'], DNS_NS);
+				foreach($dnsInfo as $info)
+				{
+					$ns[] = $info['target'];
+				}
 			}
 
 			foreach($dns as $key => $nameServers)
@@ -87,13 +93,6 @@ class WebhostWhois
 				{
 					$this->results[$key] = false;
 				}
-			}
-		}
-		else
-		{
-			foreach($dns as $key => $nameServers)
-			{
-				$this->results[$key] = false;
 			}
 		}
 	}
