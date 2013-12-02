@@ -37,7 +37,7 @@ To get the key of the detected hosting company, call the `get()` method:
 ```php
 require 'WebhostWhois.php';
 $host = new WebhostWhois;
-$host->get() // Ex: 'media-temple-gs'
+$host->get(); // Ex: 'media-temple-gs'
 ```
 
 You can also call a boolean method based on the hosting company's key:
@@ -60,3 +60,4 @@ GoDaddy | go-daddy | http://godaddy.com
 InMotion | in-motion | http://inmotionhosting.com
 Media Temple (gs) | media-temple-gs | http://mediatemple.net
 OVH | ovh | http://ovh.co.uk
+Rackspace Cloud | rackspace-cloud | http://www.rackspace.com/cloud
