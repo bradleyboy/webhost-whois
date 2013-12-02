@@ -3,7 +3,7 @@ Webhost Whois
 
 PHP class for determining what web hosting company's servers the current environment is running in.
 
-[![Build Status](https://travis-ci.org/bradleyboy/webhost-whois.png)](https://travis-ci.org/meatspaces/meatspace-chat)
+[![Build Status](https://travis-ci.org/bradleyboy/webhost-whois.png)](https://travis-ci.org/bradleyboy/webhost-whois)
 
 ## What? Why?
 
