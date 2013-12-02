@@ -3,6 +3,8 @@ Webhost Whois
 
 PHP class for determining what web hosting company's servers the current environment is running in.
 
+[![Build Status](https://travis-ci.org/bradleyboy/webhost-whois.png)](https://travis-ci.org/meatspaces/meatspace-chat)
+
 ## What? Why?
 
 For developers who distribute applications that run on shared hosting, it can be useful to know what web hosting company is in use.
