@@ -16,6 +16,7 @@ Yes, phpinfo() is a great way to test for general compatibility. However, other 
 1. Be PHP 5.2 compatible, at minimum. Those targeting shared hosts will know all to well why this is important.
 2. Keep code within a single file. This will help keep it portable for inclusion in light packages like server tests, or thin installers.
 3. Cover as many hosts as possible, no matter how small.
+4. Only revert to DNS based detection when no other identifiable information is available in PHP itself. See `$dns` array in WebhostWhois.php for an example.
 
 ## How can I help?
 
@@ -58,8 +59,8 @@ Bluehost | bluehost | http://bluehost.com
 Dreamhost | dreamhost | http://dreamhost.com
 GoDaddy | go-daddy | http://godaddy.com
 InMotion | in-motion | http://inmotionhosting.com
-Media Temple DV | media-temple-dv | http://mediatemple.net
-Media Temple Grid | media-temple-grid | http://mediatemple.net
+Media Temple DV | media-temple-dv | http://mediatemple.net/dv
+Media Temple Grid | media-temple-grid | http://mediatemple.net/grid
 OVH | ovh | http://ovh.co.uk
 Rackspace Cloud | rackspace-cloud | http://rackspace.com/cloud
 Site5 | site5 | http://site5.com
