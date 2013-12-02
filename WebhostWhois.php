@@ -37,7 +37,7 @@ class WebhostWhois
 		// Keep tests in alphabetical order by key.
 		$this->results = array(
 			'dreamhost'       => isset($_SERVER['DH_USER']),
-			'godaddy'         => strpos($uname, 'secureserver.net') !== false,
+			'go-daddy'         => strpos($uname, 'secureserver.net') !== false,
 			'in-motion'       => strpos($uname, '.inmotionhosting.com') !== false,
 			'media-temple-gs' => preg_match('/\.gridserver\.com$/', $_ENV['ACCESS_DOMAIN']) === 1,
 		);
