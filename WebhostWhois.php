@@ -36,6 +36,7 @@ class WebhostWhois
 		// Tests for each webhost go here. Each test should evaluate to a boolean.
 		// Keep tests in alphabetical order by key.
 		$this->results = array(
+			'bluehost'        => strpos($uname, 'hostmonster.com ') !== false,
 			'dreamhost'       => isset($_SERVER['DH_USER']),
 			'go-daddy'        => strpos($uname, 'secureserver.net') !== false,
 			'in-motion'       => strpos($uname, '.inmotionhosting.com') !== false,

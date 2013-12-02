@@ -5,7 +5,7 @@ PHP class for determining what web hosting company's servers the current environ
 
 ## What? Why?
 
-For developers who distribute applications that run on shared hosting, it can be useful to know what web hosting company is in use. 
+For developers who distribute applications that run on shared hosting, it can be useful to know what web hosting company is in use.
 
 *But that's what phpinfo() is for!*
 
@@ -54,6 +54,7 @@ So far, the following hosts are supported:
 
 Company | Key | URL
 ----|------|----
+Bluehost | bluehost | http://bluehost.com
 Dreamhost | dreamhost | http://dreamhost.com
 GoDaddy | go-daddy | http://godaddy.com
 InMotion | in-motion | http://inmotionhosting.com
