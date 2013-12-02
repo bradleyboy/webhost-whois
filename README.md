@@ -32,12 +32,12 @@ require 'WebhostWhois.php';
 $host = new WebhostWhois;
 ```
 
-To get the key of the detected hosting company, call the `get()` method:
+To get the key of the detected hosting company, access the `key` property:
 
 ```php
 require 'WebhostWhois.php';
 $host = new WebhostWhois;
-$host->get(); // Ex: 'media-temple-gs'
+$host->key; // Ex: 'media-temple-gs'
 ```
 
 You can also call a boolean method based on the hosting company's key:

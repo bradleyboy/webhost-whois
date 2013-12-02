@@ -2,7 +2,7 @@
 
 class WebhostWhois
 {
-	private $results;
+	public $key = 'unknown';
 
 	// For magic methods
 	// Ex. isMediaTempleGs()
@@ -22,20 +22,6 @@ class WebhostWhois
 		}
 	}
 
-	// Returns the detected webhost's key
-	function get()
-	{
-		foreach($this->results as $key => $passes)
-		{
-			if ($passes === true)
-			{
-				return $key;
-			}
-		}
-
-		return 'unknown';
-	}
-
 	function __construct()
 	{
 		// Used for several tests
@@ -44,7 +30,7 @@ class WebhostWhois
 
 		// Tests for each webhost go here. Each test should evaluate to a boolean.
 		// Keep tests in alphabetical order by key.
-		$this->results = array(
+		$results = array(
 			'bluehost'        => strpos($uname, 'hostmonster.com ') !== false,
 			'dreamhost'       => isset($_SERVER['DH_USER']),
 			'go-daddy'        => strpos($uname, 'secureserver.net') !== false,
@@ -54,5 +40,14 @@ class WebhostWhois
 			'rackspace-cloud' => strpos($uname, 'stabletransit.com ') !== false,
 			'site5'           => strpos($uname, '.accountservergroup.com ') !== false,
 		);
+
+		foreach($results as $key => $passes)
+		{
+			if ($passes === true)
+			{
+				$this->key = $key;
+				break;
+			}
+		}
 	}
 }
