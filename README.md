@@ -66,3 +66,4 @@ Media Temple Grid | media-temple-grid | http://mediatemple.net/grid
 OVH | ovh | http://ovh.co.uk
 Rackspace Cloud | rackspace-cloud | http://rackspace.com/cloud
 Site5 | site5 | http://site5.com
+Strato | strato | http://strato.de/hosting/
