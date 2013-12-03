@@ -87,4 +87,11 @@ class Hosts extends PHPUnit_Framework_TestCase
 		$this->assertTrue($host->isSite5());
 		$this->assertEquals($host->key, 'site5');
 	}
+
+	public function testStrato()
+	{
+		$host = new WebhostWhois('Linux h2068118.stratoserver.net 2.6.32-5-686-bigmem #1 SMP Mon Feb 25 01:53:47 UTC 2013 i686');
+		$this->assertTrue($host->isStrato());
+		$this->assertEquals($host->key, 'strato');
+	}
 }

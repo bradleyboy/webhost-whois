@@ -48,6 +48,7 @@ class WebhostWhois
 			'ovh'               => strpos($uname, '.ovh.net ') !== false,
 			'rackspace-cloud'   => strpos($uname, 'stabletransit.com ') !== false,
 			'site5'             => strpos($uname, '.accountservergroup.com ') !== false,
+			'strato'            => strpos($uname, '.stratoserver.net ') !== false,
 		);
 
 		// Separate definitions for hosts that can only be detected via DNS nameservers.
