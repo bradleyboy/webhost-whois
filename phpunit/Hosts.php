@@ -6,13 +6,13 @@ class Hosts extends PHPUnit_Framework_TestCase
 {
 
 	/**
-     * @expectedException ErrorException
-     */
-    public function testException()
-    {
-    	$host = new WebhostWhois;
-    	$host->isSomeHost();
-    }
+	 * @expectedException ErrorException
+	 */
+	public function testException()
+	{
+		$host = new WebhostWhois;
+		$host->isSomeHost();
+	}
 
 	public function testUnknown()
 	{
