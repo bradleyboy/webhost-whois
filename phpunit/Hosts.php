@@ -5,7 +5,7 @@ require dirname(dirname(__FILE__)) . '/WebhostWhois.php';
 class Hosts extends PHPUnit_Framework_TestCase
 {
 	/**
-	 * @expectedException ErrorException
+	 * @expectedException BadMethodCallException
 	 */
 	public function testException()
 	{
