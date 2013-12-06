@@ -51,6 +51,17 @@ $host = new WebhostWhois;
 $host->isMediaTempleGrid(); // true
 ```
 
+By default, WebhostWhois performs a DNS check if the standard PHP data checks fail. You can disable this by passing options to the contructor:
+
+```php
+require 'WebhostWhois.php';
+$host = new WebhostWhois;
+$host->isMediaTempleDv(); // true
+
+$host = new WebhostWhois(array('useDns' => false));
+$host->isMediaTempleDv(); // false
+```
+
 ## Supported hosts
 
 So far, the following hosts are supported:

@@ -19,30 +19,29 @@ class WebhostWhois
         }
     }
 
-    public function __construct($uname = false, $server = false)
+    public function __construct($options = array())
     {
-        // Used for several tests
-        // Many hosts can be identified by the domain listed
-        if (!$uname) {
-            $uname = php_uname();
-        }
-
-        if ($server) {
-            $_SERVER = $server;
-        }
+    	$options = array_merge(
+    		array(
+    			'uname' => php_uname(),
+    			'server' => $_SERVER,
+    			'useDns' => true
+    		),
+    		$options
+    	);
 
         // Tests for each webhost go here. Each test should evaluate to a boolean.
         // Keep tests in alphabetical order by key.
         $this->results = array(
-            'bluehost'          => strpos($uname, 'hostmonster.com ') !== false,
-            'dreamhost'         => isset($_SERVER['DH_USER']),
-            'go-daddy'          => strpos($uname, 'secureserver.net') !== false,
-            'in-motion'         => strpos($uname, '.inmotionhosting.com') !== false,
-            'media-temple-grid' => isset($_SERVER['ACCESS_DOMAIN']) && preg_match('/\.gridserver\.com$/', $_SERVER['ACCESS_DOMAIN']) === 1,
-            'ovh'               => strpos($uname, '.ovh.net ') !== false,
-            'rackspace-cloud'   => strpos($uname, 'stabletransit.com ') !== false,
-            'site5'             => strpos($uname, '.accountservergroup.com ') !== false,
-            'strato'            => strpos($uname, '.stratoserver.net ') !== false,
+            'bluehost'          => strpos($options['uname'], 'hostmonster.com ') !== false,
+            'dreamhost'         => isset($options['server']['DH_USER']),
+            'go-daddy'          => strpos($options['uname'], 'secureserver.net') !== false,
+            'in-motion'         => strpos($options['uname'], '.inmotionhosting.com') !== false,
+            'media-temple-grid' => isset($options['server']['ACCESS_DOMAIN']) && preg_match('/\.gridserver\.com$/', $options['server']['ACCESS_DOMAIN']) === 1,
+            'ovh'               => strpos($options['uname'], '.ovh.net ') !== false,
+            'rackspace-cloud'   => strpos($options['uname'], 'stabletransit.com ') !== false,
+            'site5'             => strpos($options['uname'], '.accountservergroup.com ') !== false,
+            'strato'            => strpos($options['uname'], '.stratoserver.net ') !== false,
         );
 
         // Separate definitions for hosts that can only be detected via DNS nameservers.
@@ -64,8 +63,8 @@ class WebhostWhois
         } else {
             $ns = array();
 
-            if (isset($_SERVER['HTTP_HOST'])) {
-                $dnsInfo = dns_get_record($_SERVER['HTTP_HOST'], DNS_NS);
+            if ($options['useDns'] && isset($options['server']['HTTP_HOST'])) {
+                $dnsInfo = dns_get_record($options['server']['HTTP_HOST'], DNS_NS);
                 foreach ($dnsInfo as $info) {
                     $ns[] = $info['target'];
                 }
