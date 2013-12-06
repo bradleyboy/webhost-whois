@@ -66,15 +66,16 @@ $host->isMediaTempleDv(); // false
 
 So far, the following hosts are supported:
 
-Company | Key | URL
-----|------|----
-Bluehost | bluehost | http://bluehost.com
-Dreamhost | dreamhost | http://dreamhost.com
-GoDaddy | go-daddy | http://godaddy.com
-InMotion | in-motion | http://inmotionhosting.com
-Media Temple DV | media-temple-dv | http://mediatemple.net/dv
-Media Temple Grid | media-temple-grid | http://mediatemple.net/grid
-OVH | ovh | http://ovh.co.uk
-Rackspace Cloud | rackspace-cloud | http://rackspace.com/cloud
-Site5 | site5 | http://site5.com
-Strato | strato | http://strato.de/hosting/
+Company | Key | Uses DNS? | URL
+----|----|----|----
+Bluehost | bluehost | No | http://bluehost.com
+Dreamhost | dreamhost | No | http://dreamhost.com
+GoDaddy | go-daddy | No | http://godaddy.com
+InMotion | in-motion | No | http://inmotionhosting.com
+Media Temple DV | media-temple-dv | Yes | http://mediatemple.net/dv
+Media Temple Grid | media-temple-grid | No | http://mediatemple.net/grid
+OVH | ovh | No | http://ovh.co.uk
+Rackspace Cloud | rackspace-cloud | No | http://rackspace.com/cloud
+Site5 | site5 | No | http://site5.com
+Strato | strato | No | http://strato.de/hosting/
+
